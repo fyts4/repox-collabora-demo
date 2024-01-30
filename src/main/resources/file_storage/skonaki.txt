@@ -1,0 +1,40 @@
+Intellij skonak
+// Set profile
+-Dspring.profiles.active=reinit
+
+Install project
+mvn install:install-file  "-Dmaven.repo.local=.m2/repository" "-Dfile=./libs/axonius.jar" "-DgroupId=com.hivepro" "-DartifactId=axonious-api-wrapper" "-Dversion=1.0.0" "-Dpackaging=jar" "-DcreateChecksum=true"
+
+"-Dspotless.check.skip=true"
+
+mvn install:install-file  "-Dfile=./libs/axonius.jar" "-DgroupId=com.hivepro" "-DartifactId=axonious-api-wrapper" "-Dversion=1.0.0" "-Dpackaging=jar" "-DcreateChecksum=true"
+
+
+SQL skonak
+
+// Find all tables
+select * from pg_catalog.pg_tables tb where tb.schemaname='public';
+
+// Find all sequences defined
+select * from information_schema.sequences;
+
+// Manually set the sequence number
+select setval('todo_id_seq',5,true);
+
+// Get all columns of table
+select * from information_schema.columns where table_schema='cloud_synced_data' and table_name='actors';
+
+// show stuff and set particular schema instead of public
+
+\l		Display database
+\c		Connect to database
+\dn		List schemas
+\dt		List tables inside public schemas
+\dt	schema1.	List tables inside particular schema
+
+SET search_path to schema1;
+
+
+###### KRONOS
+logs : /data/kronos/api/kronos.out
+
